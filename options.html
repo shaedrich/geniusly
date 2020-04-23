@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geniusly Extension Options</title>
+	<meta charset="UTF-8">
+	<script src="assets/js/router.js" type="text/javascript"></script>
+	<script src="assets/js/util.js" type="text/javascript"></script>
+	<script src="options.js" type="text/javascript"></script>
+</head>
+<style>
+	html, body {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: #ffff64;
+	}
+
+	main, header {
+		margin: 50px auto;
+		width: 800px;
+	}
+
+	main h1 {
+		font-size: 1.5em;
+		line-height: 1.45;
+		font-weight: 700;
+		display: inline-block;
+		color: inherit;
+	}
+
+	table > tbody > tr > td > ul {
+		margin: 0;
+	}
+
+	nav {
+		box-shadow:
+			5px 5px 15px #666,
+			-5px -5px 15px #666;
+		height: 3em;
+		background-color: black;
+	}
+
+	nav > ul {
+		display: flex;
+		vertical-align: middle;
+	}
+
+	nav > ul > li {
+		list-style-type: none;
+		padding: 5px 15px;
+		flex-basis: 100px;
+		transition: color .2s;
+		color: #fff;
+		cursor: pointer;
+		min-width: .8em;
+		z-index: 3;
+		display: inline-block;
+		position: relative;
+		font-size: 15px;
+	}
+
+	[data-route] {
+		cursor: pointer;
+	}
+</style>
+<body>
+	<nav>
+		<ul>
+			<li data-route="options">Options</li>
+			<li data-route="privacy">Privacy</li>
+		</ul>
+	</nav>
+	<header>
+		<img src="assets/img/logo_letters.svg" alt="Genius.com logo lettering" />
+	</header>
+	<main>
+	</main>
+</body>
+</html>

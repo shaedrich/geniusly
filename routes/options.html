@@ -1,0 +1,79 @@
+<h2>an unofficial Google Chrome Extension for <a href="https://genius.com">genius.com</a></h2>
+<table>
+	<thead>
+		<tr>
+			<th>Page&nbsp;type</th>
+			<th>URL&nbsp;path</th>
+			<th>Functionality</th>
+			<th>Notes</th>
+			<th>Version</th>
+			<th>Active</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>All</td>
+			<td></td>
+			<td><ul>
+				<li>Guides (filtered by (recommended) page type, mark as read, etc.)</li>
+			</ul></td>
+			<td>standalone</td>
+			<td>dev</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Album</td>
+			<td><code>/albums/:artist/:album</code></td>
+			<td><ul>
+				<li>View Options: Tracklist (native), YouTube videos (extension)</li>
+			</ul></td>
+			<td>standalone</td>
+			<td>1.0.0</td>
+			<td>&#10003;</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="vertical-align: top;">Artist</td>
+			<td rowspan="2" style="vertical-align: top;"><code>/artists/:artist</code></td>
+			<td><ul>
+				<li>Tab "Featured": Sections for contributions other than "Primary Artist" (e.&nbsp;g. writer, producer, feature, etc.)</li>
+			</ul></td>
+			<td>standalone</td>
+			<td>1.0.0</td>
+			<td>&#10003;</td>
+		</tr>
+		<tr>
+			<td><ul>
+				<li>Tab "Earn IQ": Filters for type</li>
+			</ul></td>
+			<td>standalone</td>
+			<td>dev</td>
+			<td>&#10003;</td>
+		</tr>
+		<tr>
+			<td>Profile</td>
+			<td><code>/:username</code></td>
+			<td style="text-align:center;">-</td>
+			<td></td>
+			<td>?</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Song</td>
+			<td><code>/:artist-:song-lyrics</code></td>
+			<td><ul>
+				<li>Tag "Musicals": Singer for roles in songtext</li>
+			</ul></td>
+			<td>Data is saved to database</td>
+			<td>dev</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Tag</td>
+			<td><code>/tags/:tag</code></td>
+			<td style="text-align:center;">-</td>
+			<td></td>
+			<td>?</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>

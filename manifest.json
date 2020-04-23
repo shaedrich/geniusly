@@ -1,0 +1,37 @@
+{
+	"name": "Geniusly",
+	"description": "Adds functionally to Genius (for details see options page)",
+	"version": "1.0.0",
+	"manifest_version": 2,
+	"permissions": ["activeTab", "tabs", "*://*.genius.com/artists/*"],
+	"options_page": "options.html",
+	"content_scripts": [
+		{
+			"matches": ["*://*.genius.com/artists/*"],
+			"js": ["assets/js/util.js", "artist.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/albums/*/*"],
+			"js": ["album.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/*-lyrics"],
+			"js": ["song.js", "assets/js/musical.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/*"],
+			"exclude_matches": ["*://*.genius.com/artists/*", "*://*.genius.com/albums/*/*", "*://*.genius.com/*-lyrics", "*://*.genius.com/tags/*"],
+			"js": ["profile.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/tags/*"],
+			"js": ["tags.js"]
+		}
+	],
+	"icons": {
+		"16": "assets/img/icon.png",
+		"48": "assets/img/icon.png",
+		"128": "assets/img/icon.png"
+	},
+	"default_locale": "en"
+}
