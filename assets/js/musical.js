@@ -32,13 +32,13 @@ if (pageData.song.tags.some(tag => tag.name === "Musicals")) {
 	var castEl = document.createElement('div');
 	var table = document.createElement('table');
 	var caption = document.createElement('h3');
-	var captionText = document.createTextNode(`"${pageData.song.title}" Cast`);
+	var captionText = document.createTextNode(`"${pageData.song.title}" ${chrome.i18n.getMessage('cast')}`);
 	var thead = document.createElement('thead');
 	var headRow = document.createElement('tr');
 	var singerHeader = document.createElement('th');
 	var roleHeader = document.createElement('th');
-	var singerHeaderText = document.createTextNode('Singer');
-	var roleHeaderText = document.createTextNode('Role');
+	var singerHeaderText = document.createTextNode(chrome.i18n.getMessage('singer'));
+	var roleHeaderText = document.createTextNode(chrome.i18n.getMessage('role'));
 	var tbody = document.createElement('tbody');
 
 	table.style.width = '100%';

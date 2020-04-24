@@ -2,7 +2,46 @@
 	"all": {
 		"message": "Alle"
 	},
+	"missing_writer_artists": {
+		"message": "Fehlende(r) Texter"
+	},
+	"missing_media": {
+		"message": "Fehlende Medien"
+	},
+	"missing_producer_artists": {
+		"message": "Fehlende(r) Produzent(en)"
+	},
+	"answer": {
+		"message": "Unbeantwortete Frage(n)"
+	},
+	"missing_albums": {
+		"message": "Fehlende(s) Album/Alben"
+	},
+	"missing_release_date": {
+		"message": "Fehlendes Veröffentlichungsdatum"
+	},
 	"writer": {
 		"message": "Texter"
+	},
+	"producer": {
+		"message": "Produzent"
+	},
+	"primary_artist": {
+		"message": "Primärer Künstler"
+	},
+	"feature_artist": {
+		"message": "Feature"
+	},
+	"custom_performances": {
+		"message": "Weitere Performer"
+	},
+	"singer": {
+		"message": "Sänger"
+	},
+	"role": {
+		"message": "Rolle"
+	},
+	"cast": {
+		"message": "Besetzung"
 	}
 }

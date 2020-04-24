@@ -40,12 +40,12 @@ var artistId = document.querySelector('meta[name="newrelic-resource-path"]').get
 
 var filterOptions = {
 	"all": chrome.i18n.getMessage('all'),
-	"missing_writer_artists": "Missing Writer(s)",
-	"missing_media": "Missing media",
-	"missing_producer_artists": "Missing producer(s)",
-	"answer": "Unanswered question",
-	"missing_albums": "Missing album(s)",
-	"missing_release_date": "Missing release date",
+	"missing_writer_artists": chrome.i18n.getMessage('missing_writer_artists'),
+	"missing_media": chrome.i18n.getMessage('missing_media'),
+	"missing_producer_artists": chrome.i18n.getMessage('missing_producer_artists'),
+	"answer": chrome.i18n.getMessage('answer'),
+	"missing_albums": chrome.i18n.getMessage('missing_albums'),
+	"missing_release_date": chrome.i18n.getMessage('missing_release_date'),
 }
 var activeFilter = 'all';
 var content = null;
@@ -192,10 +192,10 @@ function groupSongsByRole(songs) {
 
 var sectionTitleMapping = {
 	writer_artists: chrome.i18n.getMessage('writer'),
-	producer_artists: 'Producer',
-	primary_artists: 'Primary Artist',
-	featured_artists: 'Feature',
-	custom_performances: 'Miscellaneous Credits',
+	producer_artists: chrome.i18n.getMessage('producer'),
+	primary_artists: chrome.i18n.getMessage('primary_artist'),
+	featured_artists: chrome.i18n.getMessage('feature_artist'),
+	custom_performances: chrome.i18n.getMessage('custom_performances'),
 }
 console.log("lang", chrome.i18n.getUILanguage())
 
