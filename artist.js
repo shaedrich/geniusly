@@ -126,6 +126,18 @@ function loadOpportunities(nextCursor) {
 	}); // next_cursor=eyJjcmVhdGVkX2F0IjoiMjAxOS0xMS0yNFQyMzoyNDowOVoiLCJpZCI6MTA1NzQ2NDV9
 }
 
+function descriptionUI() {
+	if (pageData.artist_songs.length < 10 && pageData.artist_has_more_songs) {
+		console.log(`/api${pageData.artist.api_path}`);
+		loadMoreSongs(pageData.artist).then(function(songs) {
+			var grouped = Promise.all(songs.map(function(song) {
+				return loadSong(song);
+			})).then(groupSongsByRole).then(renderSongsByRole);
+		});
+	}
+}
+descriptionUI();
+
 var setTabName = function(e) {
 	var onClick = e.target.getAttribute('ng-click');
 	var regExp = /\$ctrl\.change_state\('([a-z_]+)'\)/;
@@ -136,14 +148,7 @@ var setTabName = function(e) {
 		content = document.querySelector('[ng-switch-when="opportunities"]');
 		renderFilterBar(content);
 	} else if (tabName === 'description') {
-		if (pageData.artist_songs.length < 10 && pageData.artist_has_more_songs) {
-			console.log(`/api${pageData.artist.api_path}`);
-			loadMoreSongs(pageData.artist).then(function(songs) {
-				var grouped = Promise.all(songs.map(function(song) {
-					return loadSong(song);
-				})).then(groupSongsByRole).then(renderSongsByRole);
-			});
-		}
+		descriptionUI();
 	}
 }
 
