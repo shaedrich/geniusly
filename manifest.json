@@ -26,6 +26,10 @@
 		{
 			"matches": ["*://*.genius.com/tags/*"],
 			"js": ["tags.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/*"],
+			"js": ["main.js"]
 		}
 	],
 	"icons": {
