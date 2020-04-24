@@ -20,12 +20,16 @@
 		},
 		{
 			"matches": ["*://*.genius.com/*"],
-			"exclude_matches": ["*://*.genius.com/artists/*", "*://*.genius.com/albums/*/*", "*://*.genius.com/*-lyrics", "*://*.genius.com/tags/*"],
+			"exclude_matches": ["*://*.genius.com/artists/*", "*://*.genius.com/albums/*/*", "*://*.genius.com/*-lyrics", "*://*.genius.com/tags/*", "*://*.genius.com/new*"],
 			"js": ["profile.js"]
 		},
 		{
 			"matches": ["*://*.genius.com/tags/*"],
 			"js": ["tags.js"]
+		},
+		{
+			"matches": ["*://*.genius.com/new*"],
+			"js": ["new.js"]
 		},
 		{
 			"matches": ["*://*.genius.com/*"],
