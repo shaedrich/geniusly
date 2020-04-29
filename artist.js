@@ -415,24 +415,30 @@ for (var item of headerNavItems) {
 	item.addEventListener('click', setTabName);
 }
 
-/* "Add a Song" feature */
-var btnBar = document.querySelector('.profile_identity_and_description-action_row');
-var addSongBtn = document.createElement('div');
-var xmlns = 'http://www.w3.org/2000/svg';
-var addBtnIcon = document.createElementNS(xmlns, 'svg');
-var addBtnIconPath = document.createElementNS(xmlns, 'path');
-var addBtnText = document.createTextNode('\tAdd a Song');
+function renderAddASong(artist, additionalData) {
+	/* "Add a Song" feature */
+	var btnBar = document.querySelector('.profile_identity_and_description-action_row');
+	var addSongBtn = document.createElement('div');
+	var xmlns = 'http://www.w3.org/2000/svg';
+	var addBtnIcon = document.createElementNS(xmlns, 'svg');
+	var addBtnIconPath = document.createElementNS(xmlns, 'path');
+	var addBtnText = document.createTextNode('\tAdd a Song');
 
-addBtnIcon.classList.add('inline_icon', 'inline_icon--reading_size', 'inline_icon--up_1');
-addBtnIcon.setAttributeNS(null, 'viewBox', '0 0 448 512');
-addBtnIconPath.setAttributeNS(null, 'd', 'M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z');
-addSongBtn.classList.add('square_button');
+	addBtnIcon.classList.add('inline_icon', 'inline_icon--reading_size', 'inline_icon--up_1');
+	addBtnIcon.setAttributeNS(null, 'viewBox', '0 0 448 512');
+	addBtnIconPath.setAttributeNS(null, 'd', 'M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z');
+	addSongBtn.classList.add('square_button');
 
-addSongBtn.addEventListener('click', function(ev) {
-	var newTab = window.open(`https://genius.com/new?artist=${pageData.artist.name}`, '_blank');
-});
+	var url = `https://genius.com/new?artist=${artist.name}`;
+	if (additionalData != null) {
+		url += `&defaultGenre=${additionalData.defaultGenre}`;
+	}
+	addSongBtn.addEventListener('click', function(ev) {
+		var newTab = window.open(url, '_blank');
+	});
 
-addBtnIcon.appendChild(addBtnIconPath);
-addSongBtn.appendChild(addBtnIcon);
-addSongBtn.appendChild(addBtnText);
-btnBar.appendChild(addSongBtn);
+	addBtnIcon.appendChild(addBtnIconPath);
+	addSongBtn.appendChild(addBtnIcon);
+	addSongBtn.appendChild(addBtnText);
+	btnBar.appendChild(addSongBtn);
+}
