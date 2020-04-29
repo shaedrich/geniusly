@@ -33,6 +33,163 @@ var templates = {
 };
 var pageData = JSON.parse(document.querySelector('meta[itemprop="page_data"]').content);
 
+var artistBio = document.querySelector('.truncated_annotation_text');
+
+var styleSheet = document.createElement('style');
+document.head.appendChild(styleSheet);
+styleSheet.sheet.insertRule(".geniusly-taglist { list-style-type: none; display: flex; flex-wrap: wrap; }");
+styleSheet.sheet.insertRule(".geniusly-taglist > li { background-color: grey; border-radius: 5px; margin: 2px; padding: 2px 5px; font-size: smaller; height: 1.5em; line-height: 1em; font-weight: lighter; }");
+styleSheet.sheet.insertRule(".square_button--youtube { background-color: red; border-color: red; color: white; }")
+styleSheet.sheet.insertRule(".square_button--youtube:hover { background-color: rgba(255, 0, 0, .8); border-color: rgba(255, 0, 0, .8); }")
+styleSheet.sheet.insertRule(".square_button--youtube .inline_icon { height: 1.25em; fill: #fff; height: 1.1em; }")
+
+var db = new Database();
+db.then(function(dbConnection) {
+	console.log("db", dbConnection)
+	dbConnection.insert('artists', {
+		geniusId: 1052235,
+		youtube_name: 'UCISU64nGvougXKjzaigDlag',
+		defaultRole: 'Producer',
+		defaultGenre: 'genre.music.pop.EDM',
+		personnelType: 'group',
+		tags: ['group.boyband', 'genre.music.electronic.edm', 'language.de_DE'],
+		yearCarrerBegin: 2001,
+		historyMilestones: [
+			{ dateFrom: '2001-01-01', dateTo: '2001-01-30', type: 'tour', title: 'Europe Tour' },
+			{ dateFrom: '2005-03-12', dateTo: null, type: 'contract', title: 'Under contract at', $link: { type: '_artist', path: '/artists/Polydor-records', name: 'Polydor Records' } }
+		]
+	});
+	var getReq = dbConnection.getId(pageData.artist.id).then(function(artist) {
+		if (artist != null) {
+			renderAddASong(pageData.artist, artist);
+
+			var artistInfo = document.createElement('div');
+			artistInfo.style.fontWeight = 'lighter';
+			artistInfo.classList.add('annotation_label');
+			delimiter = document.createTextNode(', ');
+
+			// genre
+			var genre = document.createElement('strong');
+			var genreText = document.createTextNode('Genre:');
+			var spacer = document.createTextNode(' ');
+			var genreLink = document.createElement('a');
+			var genreLinkText = document.createTextNode(artist.defaultGenre.split('.').slice(-1)[0]);
+			genreLink.href = `/tags/${artist.defaultGenre.split('.').slice(-1)[0].toLowerCase()}`;
+			genre.appendChild(genreText);
+			genreLink.appendChild(genreLinkText);
+			artistInfo.appendChild(genre);
+			artistInfo.appendChild(spacer);
+			artistInfo.appendChild(genreLink);
+
+			artistInfo.appendChild(delimiter.cloneNode());
+
+			// role
+			var role = document.createElement('strong');
+			var roleText = document.createTextNode('Role:');
+			var spacer = document.createTextNode(' ');
+			var roleTextText = document.createTextNode(artist.defaultRole);
+			role.appendChild(roleText);
+			artistInfo.appendChild(role);
+			artistInfo.appendChild(spacer);
+			artistInfo.appendChild(roleTextText);
+
+			artistBio.parentNode.insertBefore(artistInfo, artistBio);
+
+			if (artist.tags.length) {
+				var ul = document.createElement('ul');
+				ul.classList.add('geniusly-taglist');
+
+				for (var tag of artist.tags) {
+					var li = document.createElement('li');
+					var liText = document.createTextNode(tag);
+
+					li.appendChild(liText);
+					ul.appendChild(li);
+				}
+
+				artistBio.parentNode.insertBefore(ul, artistBio.nextSibling);
+			}
+
+			if (artist.historyMilestones.length) {
+				var table = document.createElement('table');
+				var thead = document.createElement('thead');
+				var tbody = document.createElement('tbody');
+				var tr = document.createElement('tr');
+
+				for (var heading of ["Date", "Action"]) {
+					var th = document.createElement('th');
+					var text = document.createElement(heading);
+
+					th.appendChild(text);
+					tr.appendChild(th);
+				}
+				thead.appendChild(tr);
+				table.appendChild(thead);
+
+				for (var milestone of artist.historyMilestones) {
+					var tr = document.createElement('tr');
+					var dateCell = document.createElement('td');
+					var actionCell = document.createElement('td');
+
+					tr.classList.add('metadata_unit', 'metadata_unit--table_row');
+
+					var dateText = document.createTextNode(milestone.dateTo !== null ? `${milestone.dateFrom} \u2013 ${milestone.dateTo}` : milestone.dateFrom);
+					var actionText = document.createTextNode(milestone.title);
+
+					dateCell.appendChild(dateText);
+					actionCell.appendChild(actionText);
+
+					if (milestone.$link != null) {
+						var actionLink = document.createElement('a');
+						var spacer = document.createTextNode(' ');
+						var actionLinkText = document.createTextNode(milestone.$link.name);
+
+						actionLink.href = milestone.$link.path;
+
+						actionLink.appendChild(actionLinkText);
+						actionCell.appendChild(spacer);
+						actionCell.appendChild(actionLink);
+					}
+
+					tr.appendChild(dateCell);
+					tr.appendChild(actionCell);
+
+					tbody.appendChild(tr);
+				}
+				table.appendChild(tbody);
+
+				artistBio.parentNode.insertBefore(table, artistBio.nextSibling);
+			}
+
+			if (artist.youtube_name.length) {
+				var socialMedia = document.querySelector('.u-text_center.u-vertical_margins');
+				var youtubeBtn = document.createElement('a');
+				var spacer = document.createTextNode('');
+				var youtubeBtnText = document.createTextNode(artist.youtube_name);
+				var xmlns = 'http://www.w3.org/2000/svg';
+				var youtubeBtnIcon = document.createElementNS(xmlns, 'svg');
+				var youtubeBtnIconPath = document.createElementNS(xmlns, 'path');
+
+				youtubeBtnIcon.classList.add('inline_icon');
+				youtubeBtnIcon.setAttributeNS(null, 'viewBox', '0 0 80 45');
+				youtubeBtnIconPath.setAttributeNS(null, 'd', 'M 35.705078 0 C 35.705078 0 13.35386 0.0001149 7.765625 1.4707031 C 4.765625 2.2942325 2.2942325 4.7653952 1.4707031 7.8242188 C 0.0001149 13.412454 -2.9605947e-016 25 0 25 C 0 25 0.0001149 36.64637 1.4707031 42.175781 C 2.2942325 45.234605 4.7068015 47.647174 7.765625 48.470703 C 13.412684 50.000115 35.705078 50 35.705078 50 C 35.705078 50 58.058249 49.999885 63.646484 48.529297 C 66.705308 47.705767 69.117877 45.293199 69.941406 42.234375 C 71.411994 36.64614 71.412109 25.058594 71.412109 25.058594 C 71.412109 25.058594 71.470818 13.412454 69.941406 7.8242188 C 69.117877 4.7653952 66.705308 2.3528263 63.646484 1.5292969 C 58.058249 -0.000114879 35.705078 2.9605947e-016 35.705078 0 z M 28.587891 14.294922 L 47.175781 25 L 28.587891 35.705078 L 28.587891 14.294922 z ');
+
+				Object.assign(youtubeBtn, {
+					target: '_blank',
+					href: `https://youtube.com/channel/${artist.youtube_name}`
+				});
+				youtubeBtn.classList.add('square_button', 'square_button--youtube', 'u-quarter_vertical_margins');
+
+				youtubeBtnIcon.appendChild(youtubeBtnIconPath);
+				youtubeBtn.appendChild(youtubeBtnIcon);
+				youtubeBtn.appendChild(spacer);
+				youtubeBtn.appendChild(youtubeBtnText);
+				socialMedia.appendChild(youtubeBtn);
+			}
+		}
+	});
+});
+
 // Chapter settings
 var contributionOpportunities = [];
 var tabName = 'description';
