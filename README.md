@@ -9,11 +9,7 @@ Community-based development has its benefits and downsides, but instead of putti
 geniusly is currently in beta. So feel free to install it as described below and give some feedback.
 
 # Contributing
-## Giving feedback
-If you have any questions or feedback, you can drop a in [the official genius forum](https://genius.com/discussions/381840-Google-chrome-extension-for-new-features).
-
-## Development
-If you want to contribute to this project, fork it, make your changes and create a pull request.
+See [Contribution guide](CONTRIBUTING.md)
 
 # Installation
 1. Go to the [releases list](https://github.com/shaedrich/geniusly/releases) and download the most recent .zip

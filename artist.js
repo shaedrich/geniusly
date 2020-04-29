@@ -10,7 +10,7 @@ var templates = {
 				<div class="mini_card-title_and_subtitle">
 					<div class="mini_card-title">{{song.title}}</div>
 					<div class="mini_card-subtitle">
-					{{song.primary_artist.name}}<!---->
+						{{song.primary_artist.name}}<!---->
 					</div>
 				</div>
 				<!---->
@@ -204,7 +204,7 @@ var filterOptions = {
 	"answer": chrome.i18n.getMessage('answer'),
 	"missing_albums": chrome.i18n.getMessage('missing_albums'),
 	"missing_release_date": chrome.i18n.getMessage('missing_release_date'),
-}
+};
 var activeFilter = 'all';
 var content = null;
 var setActiveFilter = function(e) {
@@ -220,7 +220,7 @@ function renderFilterBar(content) {
 	filterBar.classList.add('zuri-filterbar');
 	Object.assign(filterBar.style, {
 		marginTop: '20px',
-	})
+	});
 	for (var filter in filterOptions) {
 		var filterEl = document.createElement('li');
 		var filterText = document.createTextNode(filterOptions[filter]);
@@ -307,7 +307,7 @@ var setTabName = function(e) {
 	} else if (tabName === 'description') {
 		descriptionUI();
 	}
-}
+};
 
 function loadMoreSongs(artist) {
 	return new Promise(function(resolve, reject) {
