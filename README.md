@@ -12,8 +12,7 @@ geniusly is currently in beta. So feel free to install it as described below and
 See [Contribution guide](CONTRIBUTING.md)
 
 # Installation
-1. Go to the [releases list](https://github.com/shaedrich/geniusly/releases) and download the most recent .zip
-2. Unzip it
-3. Open Google Chrome and navigate to chrome://extensions/ or click on the right-hand three dots menu > More&nbsp;tools&nbsp;… > extensions
-4. If you hadn't done it yet, enable the developer mode, which is a tick in the top right of the extensions page
-5. Then ‘load unpacked’ extension
+1. Go to the [releases list](https://github.com/shaedrich/geniusly/releases) and download the most recent geniusly.crx (if that doesn't work, download the .zip and unzip it)
+2. Open Google Chrome and navigate to chrome://extensions/ or click on the right-hand three dots menu > More&nbsp;tools&nbsp;… > extensions
+3. If you hadn't done it yet, enable the developer mode, which is a tick in the top right of the extensions page
+4. Then ‘load unpacked’ extension
