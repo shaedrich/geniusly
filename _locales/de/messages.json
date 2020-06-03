@@ -3,7 +3,7 @@
 		"message": "Alle"
 	},
 	"missing_writer_artists": {
-		"message": "Fehlende(r) Texter"
+		"message": "Fehlende(r) Autor"
 	},
 	"missing_media": {
 		"message": "Fehlende Medien"
@@ -21,7 +21,7 @@
 		"message": "Fehlendes Veröffentlichungsdatum"
 	},
 	"writer": {
-		"message": "Texter"
+		"message": "Autor"
 	},
 	"producer": {
 		"message": "Produzent"
