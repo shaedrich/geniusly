@@ -10,7 +10,6 @@ body:
       label: Description
       description: Describe the bug
       placeholder: "A clear and concise description of what the bug is."
-      value: "A clear and concise description of what the bug is."
     validations:
       required: true
   - type: input
@@ -19,6 +18,29 @@ body:
       label: Operating system
       description: 
       placeholder: e.g. iOS
+    validations:
+      required: false
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Enter the name of your browser
+      placeholder: e.g. chrome, safari
+    validations:
+      required: false
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser version
+      description: Enter the version number of your browser
+      placeholder: e.g. 22
+    validations:
+      required: false
+  - type: checkbox
+    id: is-mobile
+    attributes:
+      label: Mobile?
+      description: Tick this checkbox if the bug occoured on a mobile device
     validations:
       required: false
 ---
