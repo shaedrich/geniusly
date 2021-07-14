@@ -5,6 +5,14 @@ title: "[BUG]"
 labels: [ "bug" ]
 assignees: []
 body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the bug
+      placeholder: ""
+      value: ""
+    validations:
+      required: true
   - type: input
     id: os
     attributes:
