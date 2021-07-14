@@ -9,8 +9,8 @@ body:
     attributes:
       label: Description
       description: Describe the bug
-      placeholder: ""
-      value: ""
+      placeholder: "A clear and concise description of what the bug is."
+      value: "A clear and concise description of what the bug is."
     validations:
       required: true
   - type: input
