@@ -4,7 +4,15 @@ about: Create a report to help us improve
 title: "[BUG]"
 labels: bug
 assignees: ''
-
+body:
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: 
+      placeholder: e.g. iOS
+    validations:
+      required: false
 ---
 
 **Describe the bug**
