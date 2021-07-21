@@ -13,6 +13,28 @@ body:
       value: "A clear and concise description of what the bug is."
     validations:
       required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: "A clear and concise description of what the bug is."
+      value: "A clear and concise description of what the bug is."
+    validations:
+      required: true
   - type: input
     id: os
     attributes:
@@ -27,6 +49,14 @@ body:
       label: Browser
       description:
       placeholder: e.g. Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, Opera
+    validations:
+      required: false
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser version
+      description:
+      placeholder: e.g. 42
     validations:
       required: false
 ---
