@@ -30,7 +30,9 @@ body:
   - type: textarea
     attributes:
       label: Expected behavior
-      description: A clear and concise description of what you expected to happen.\nIf applicable, add screenshots to help explain your problem.
+      description: |
+        A clear and concise description of what you expected to happen.
+        If applicable, add screenshots to help explain your problem.
       placeholder: "A clear and concise description of what the bug is."
       value: "A clear and concise description of what the bug is."
     validations:
