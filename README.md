@@ -13,6 +13,6 @@ See [Contribution guide](CONTRIBUTING.md)
 
 # Installation
 1. Go to the [releases list](https://github.com/shaedrich/geniusly/releases) and download the most recent geniusly.crx (if that doesn't work, download the .zip and unzip it)
-2. Open Google Chrome and navigate to chrome://extensions/ or click on the right-hand three dots menu > More&nbsp;tools&nbsp;… > extensions
+2. Open Google Chrome and navigate to [chrome://extensions/](chrome://extensions/) or click on the right-hand three dots menu (<kbd>&vellip;</kbd>) &blacktriangleright; More&nbsp;tools&nbsp;… &blacktriangleright; extensions
 3. If you hadn't done it yet, enable the developer mode, which is a tick in the top right of the extensions page
-4. Then ‘load unpacked’ extension
+4. Then <kbd>load unpacked</kbd> extension
