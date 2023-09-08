@@ -1,6 +1,10 @@
 console.log("ROUTE:: new")
 var searchParams = new URLSearchParams(document.location.search);
 
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
 async function getTags() {
 	var req = await fetch('/api/tags/home');
 	return req.json();
@@ -25,7 +29,7 @@ if (searchParams.has('defaultGenre')) {
 		if (defaultGenre[1] === "non-music") {
 			var tag = result.response.tags.find((tag) => /https:\/\/genius\.com\/tags\/non-music/.test(tag.url));
 		} else {
-			var tag = result.response.tags.find((tag) => new RegExp(`https:\/\/genius\.com\/tags\/${defaultGenre[2]}`).test(tag.url));
+			var tag = result.response.tags.find((tag) => new RegExp(`https:\/\/genius\.com\/tags\/${escapeRegExp(defaultGenre[2])}`).test(tag.url));
 		}
 		document.getElementById(`song_primary_tag_id_${tag.id}`).checked = true;
 	});
